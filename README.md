@@ -1,10 +1,16 @@
-<urn:Z_THMM_WXTOSAP_INFO xmlns:urn="urn:sap-com:document:sap:rfc:functions" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-<I_FUNID>M097</I_FUNID>
-<I_INSTR> [ { "vkorg":"6801", "vbeln":"283575" }]</I_INSTR>
-</urn:Z_THMM_WXTOSAP_INFO>
+#file:skill-creator 帮我创建一个skill，skill的名称叫”HOLLIMOS平台Q&A专家“，这个skill的定位和职责就是一个支持收录、检索、聊天回复、支持下载问题清单文件的关于HOLLIMOS平台问题和答案的问题库和答疑专家。
+主要功能如下：
+1.问题单存储
+1.1 存储格式：以文本的形式持久化存储，作为完整的问题库，请根据skill的完整功能要求自行决策具体形式，保证持久化和性能
+1.2 存储位置：存储位置指定在当前skill的db目录下
 
+2.支持用户录入新的问题
+2.1 录入内容：录入问题内容包括5项：所属模块，问题描述，问题原因，解决方案，备注。
+2.2 录入触发条件：当用户输入关键字包含”Q&A问题录入“时，触发问题录入。应主动出现问题收录文本框让用户按顺序逐个录入相关问题信息，其中所属模块，问题描述，问题原因，解决方案此4项为必填项，备注为非必填项。用户录入必填项并确认后方可录入，否则无法录入并给出用户友好提示（如：请输入要录入的问题信息）。
 
+3.支持用户问题答疑，根据用户输入的问题描述检索问题库并回复答疑
+3.1 答疑触发条件：当用户输入关键字包含”Q&A问题答疑“时，触发问题答疑功能。如果用户触发了答疑条件但是没有输入有效的问题描述，请主动要求用户输入问题描述，否则无法答疑并给出友好提示（如：请尽量详细输入问题描述）。
+3.2 答疑方法：根据用户输入描述的问题内容检索问题库里的”问题描述“模块，检索方式是问题描述里是否包含或相似匹配到用户输入相应的问题描述，如果匹配到了，将问题库里匹配到的问题单完整内容总结并给出结论，结论包含问题单的所有内容（录入问题内容包括5项：所属模块，问题描述，问题原因，解决方案，备注）
 
-<n0:Z_THMM_WXTOSAP_INFO.Response xmlns:n0="urn:sap-com:document:sap:rfc:functions" xmlns:prx="urn:sap.com:proxy:ESD:/1SAI/TASE35F12AB1FEDEB4231F6:740">
-<E_OUTSTR>{"type":"S","message":"查询成功！","return":[{"vkorg":"6801","vkbur":"0102","auart":"Z0G2","bezei":"糖标准合同","vbelnC":"0000283575","bstnk":"BBS20T-2021-001","ihrez":"BBS20T-2021-001","audat":"2021-01-18","guebg":"2020-12-20","gueen":"2021-12-31","kunnrC":"0020063734","nameC":"山西雅士利乳业有限公司","kunnrR":"0003000687","nameR":"张琪","bname":"ZHANGQI.TH","zterm":"T002","ztermT":"现款现货无账期","matklS":"T1101001","wgbezS":"白砂糖","zmeng":490.050,"zieme":"TON","kbetrC":5360.00,"kwertC":2626668.00,"kwertB":2626668.00,"amountA":2630867.50,"amountL":0,"amountC":0,"zytbzj":0,"zytysk":0,"zytzcsk":0,"zwdq":0,"zjtdq":0,"zyyq":0,"waers":"CNY","zyswqhj":0,"zsfczyq":"无逾期","zredetail":[{"actDate":"2020-05-07","rid":"0000000016911316","ridmi":2,"vbelnGrp":"0000283575","vbelnVf":"","rmbty":"5","rmbtyT":"转预收款","zywymc":"张琪","belnr":"1020001556","buzei":2,"miAmount":3327.50,"waers":"CNY","tranAmount":0},{"actDate":"2020-07-02","rid":"0000000017582323","ridmi":2,"vbelnGrp":"0000283575","vbelnVf":"","rmbty":"5","rmbtyT":"转预收款","zywymc":"张琪","belnr":"1020002553","buzei":2,"miAmount":10797.50,"waers":"CNY","tranAmount":0},{"actDate":"2021-02-05","rid":"0000000020799745","ridmi":1,"vbelnGrp":"0000283575","vbelnVf":"","rmbty":"1","rmbtyT":"预收款","zywymc":"张琪","belnr":"1020000382","buzei":2,"miAmount":589600.00,"waers":"CNY","tranAmount":0},{"actDate":"2021-03-18","rid":"0000000021280449","ridmi":1,"vbelnGrp":"0000283575","vbelnVf":"","rmbty":"1","rmbtyT":"预收款","zywymc":"张琪","belnr":"1020000764","buzei":2,"miAmount":563594.50,"waers":"CNY","tranAmount":0},{"actDate":"2021-04-15","rid":"0000000021656321","ridmi":1,"vbelnGrp":"0000283575","vbelnVf":"","rmbty":"1","rmbtyT":"预收款","zywymc":"张琪","belnr":"1020001093","buzei":2,"miAmount":589600.00,"waers":"CNY","tranAmount":0},{"actDate":"2021-06-01","rid":"0000000022316235","ridmi":1,"vbelnGrp":"0000283575","vbelnVf":"","rmbty":"1","rmbtyT":"预收款","zywymc":"张琪","belnr":"1020001864","buzei":2,"miAmount":581292.00,"waers":"CNY","tranAmount":0},{"actDate":"2021-07-15","rid":"0000000022955169","ridmi":1,"vbelnGrp":"0000283575","vbelnVf":"","rmbty":"1","rmbtyT":"预收款","zywymc":"张琪","belnr":"1020002591","buzei":2,"miAmount":292656.00,"waers":"CNY","tranAmount":0}]}]}</E_OUTSTR>
-</n0:Z_THMM_WXTOSAP_INFO.Response>
+要求如下：
+此skill的问题库内容完全来自与用户录入，问题的答疑也必须从问题库中检索和回复，不得发散思维，如果检索不到用户的问题，直接回复用户”您提问的问题在问题库中还没有录入，如果您找到了解决方案，欢迎您及时录入！“
