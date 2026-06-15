@@ -18,3 +18,66 @@
 
 
 $env:RSYNC_RSH='./ssh.exe -p 6002'; ./sshpass.exe -p 'sSkL_8tP7_cTvm!' ./rsync.exe -a  ./test hsm-os@172.32.6.155:/opt/lzz
+
+{
+		"name": "company",
+		"vendor": "customendpoint",
+		"apiKey": "${input:chat.lm.secret.4125a474}",
+		"apiType": "chat-completions",
+		"models": [
+			{
+				"id": "minimax-m3",
+				"name": "minimax-m3",
+				"url": "https://tokenhub.tencentmaas.com/plan/v3",
+				"toolCalling": true,
+				"vision": true,
+				"maxInputTokens": 1000000,
+				"maxOutputTokens": 1000000
+			},
+			{
+				"id": "deepseek-v4-flash-202605",
+				"name": "deepseek-v4-flash-202605",
+				"url": "https://tokenhub.tencentmaas.com/plan/v3",
+				"toolCalling": true,
+				"vision": true,
+				"maxInputTokens": 1000000,
+				"maxOutputTokens": 1000000
+			},
+			{
+				"id": "deepseek-v4-pro-202606",
+				"name": "deepseek-v4-pro-202606",
+				"url": "https://tokenhub.tencentmaas.com/plan/v3",
+				"toolCalling": true,
+				"vision": true,
+				"maxInputTokens": 1000000,
+				"maxOutputTokens": 1000000
+			},
+			{
+				"id": "glm-5.1",
+				"name": "glm-5.1",
+				"url": "https://tokenhub.tencentmaas.com/plan/v3",
+				"toolCalling": true,
+				"vision": true,
+				"maxInputTokens": 200000,
+				"maxOutputTokens": 128000
+			},
+			{
+				"id": "glm-5",
+				"name": "glm-5",
+				"url": "https://tokenhub.tencentmaas.com/plan/v3",
+				"toolCalling": true,
+				"vision": true,
+				"maxInputTokens": 200000,
+				"maxOutputTokens": 128000
+			},
+			{
+				"id": "kimi-k2.6",
+				"name": "kimi-k2.6",
+				"url": "https://tokenhub.tencentmaas.com/plan/v3",
+				"toolCalling": true,
+				"vision": true,
+				"maxInputTokens": 256000,
+				"maxOutputTokens": 256000
+			}
+		]
+	}
